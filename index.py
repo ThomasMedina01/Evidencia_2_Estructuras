@@ -26,4 +26,51 @@ try:
                 intentos += 3
                 Validacion.bloqueo(10)
                 print(separador)
+                
+        if Validacion.entero(opcion) == 1:
+            Validacion.limpiar_pantalla()
+            print(separador)
+            print("Registro de ventas.")
+            print(separador)
+        
+            intentos = 4
+            numero_ventas = input("¿Cuantas ventas desea registrar? ")
+            print(separador)
+            while Validacion.cantidad(numero_ventas) == False:
+                intentos -= 1
+                numero_ventas = input(f"Intentalo nuevamente, ingresa un número entero, tienes {intentos} intentos mas: ")
+                print(separador)
+                if intentos == 1:
+                    Validacion.bloqueo(10)
+                    print(separador)
+                    intentos += 3                
+                
+            
+            for x in range(Validacion.cantidad(numero_ventas)):
+                descripcion = input("Descripción del articulo: ")
+                print(separador)
+                intentos = 4
+                unidades = input(f"Cantidad de unidades de {descripcion}: ")
+                print(separador)
+                while Validacion.cantidad(unidades) == False:
+                    intentos -= 1
+                    unidades = input(f"Intentalo nuevamente, ingresa un número entero, tienes {intentos} intentos mas: ")
+                    print(separador)
+                    if intentos == 1:
+                        Validacion.bloqueo(10)
+                        print(separador)
+                        intentos += 3
+
+                intentos = 4
+                precio = input(f"Precio unitario de {descripcion}: ")
+                print(separador)
+                while Validacion.precio(precio) == False:
+                    intentos -= 1
+                    precio = input(f"Intentalo nuevamente, ingresa un valor númerico, tienes {intentos} intentos mas: ")
+                    print(separador)
+                    if intentos == 1:
+                        Validacion.bloqueo(10)
+                        print(separador)
+                        intentos += 3
+
   
