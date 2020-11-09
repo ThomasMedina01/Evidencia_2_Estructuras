@@ -72,5 +72,24 @@ try:
                         Validacion.bloqueo(10)
                         print(separador)
                         intentos += 3
+                total = Validacion.precio(precio) * Validacion.cantidad(unidades)
+                fecha = datetime.date.today()
+                venta = Ventas(descripcion, Validacion.cantidad(unidades), Validacion.precio(precio), total, fecha)
+                venta.almacen_volatil()
+                print(separador)
+                print("Venta registrada con exito.")
+                print(separador)
+                venta.ver_venta()
+                print(separador)
+                venta.guardar_venta()
 
+        if Validacion.entero(opcion) == 2:
+            Validacion.limpiar_pantalla()
+            fecha = input("Escriba una fecha(dia/mes/año): ")
+            Ventas.consulta(fecha)
+
+        if Validacion.entero(opcion) == 3:
+            break
+except:
+    print(f"Ha ocurrido el siguiente error: {sys.exc_info()[0]}")
   
